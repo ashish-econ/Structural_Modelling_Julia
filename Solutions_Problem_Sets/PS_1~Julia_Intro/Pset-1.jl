@@ -53,27 +53,27 @@ function q1()
     ### Part(h): Saving Matrix A,B,C,D,E,F,G as a .jld file called matrixpractice
 
     # Saving all the matrices with their respective unique identifiers
-    save("Solutions_Problem_Sets/PS_1~Julia_Intro/matrixpractice.jld",
+    save("Solutions_Problem_Sets/matrixpractice.jld",
     "A",A,"B",B,"C",C,"D",D,"E",E,"F",F,"G",G)
 
     # Fetching Only the Matrix A 
     #load("F:/R_Project_Directories/Trial_PROJECT/Structural_Modelling_2020/Solutions_Problem_Sets/matrixpractice.jld","A")
 
     ### Part(i): Save only the matrices A, B, C, and D as a .jld file called firstmatrix.
-    save("Solutions_Problem_Sets/PS_1~Julia_Intro/firstmatrix.jld",
+    save("Solutions_Problem_Sets/firstmatrix.jld",
     "A",A,"B",B,"C",C,"D",D)
 
     ### Part(j): Export C as a .csv file called Cmatrix. You will first need to transform C into a Dataframe
     C = convert(DataFrame,C) # Converting to dataframe
 
     # Writitng a csv file
-    CSV.write("Solutions_Problem_Sets/PS_1~Julia_Intro/Cmatrix.csv",C)
+    CSV.write("Solutions_Problem_Sets/Cmatrix.csv",C)
 
     ### Part(h):Export D as a tab-delimited .dat file called Dmatrix. You will first need to transform D into a DataFrame.
     D = convert(DataFrame,D)
 
     # Writing a tab delimited .dat file
-    CSV.write("Solutions_Problem_Sets/PS_1~Julia_Intro/Dmatrix.dat", D)
+    CSV.write("Solutions_Problem_Sets/Dmatrix.dat", D)
     #CSV.File("F:/R_Project_Directories/Trial_PROJECT/Structural_Modelling_2020/Solutions_Problem_Sets/Dmatrix.dat") |> DataFrame!
 
 
@@ -170,10 +170,10 @@ q2(A,B,C,D)
 ############ Ques:3 #############################################
 function q3()
         #### (a): Importing nlsw88.csv as data frame ##########
-    df = CSV.read("Solutions_Problem_Sets/PS_1~Julia_Intro/nlsw88.csv",delim = ",")
+    df = CSV.read("Solutions_Problem_Sets/nlsw88.csv",delim = ",")
 
     # Saving df as jld file
-    save("Solutions_Problem_Sets/PS_1~Julia_Intro/nlsw88.jld","df",df)
+    save("Solutions_Problem_Sets/nlsw88.jld","df",df)
 
     ### (b): What Percentage are never married
     1- mean(df."married") # ~ 35%
@@ -202,7 +202,7 @@ end
 
 function q4()
     # Part(a): Load firstmatrix.jld
-    load("Solutions_Problem_Sets/PS_1~Julia_Intro/matrixpractice.jld")
+    load("Solutions_Problem_Sets/matrixpractice.jld")
 
     #= Part(b): Defining Matrixops function
     Part(c): Explain the function on the second line.=#
@@ -229,7 +229,7 @@ function q4()
     matrixops(C,D)
 
     # Part(g):Evaluate ,matrixops using ttl_exp and wage from nlsw88.jld
-    df = CSV.read("Solutions_Problem_Sets/PS_1~Julia_Intro/nlsw88.csv",delim = ",")
+    df = CSV.read("Solutions_Problem_Sets/nlsw88.csv",delim = ",")
     head(df)
     ttl_exp= convert(Array,df.ttl_exp)
     wage = convert(Array,df.wage)
@@ -238,7 +238,7 @@ function q4()
 end
 
 q1()
-q2(A,B,C,D)
+q2()
 q3()
 q4()
 #################### PSET ENDS #######################################################
